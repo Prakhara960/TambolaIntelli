@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IntelliTambola — Online Tambola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <h1>IntelliTambola</h1>
+      <p class="sub">Play Tambola — no extra backend, Google Sheets + Apps Script</p>
+    </header>
+
+    <main id="lobby" class="card">
+      <div class="controls">
+        <input id="hostName" placeholder="Your name (host)"/>
+        <button id="createRoomBtn" class="btn primary">Create Room</button>
+
+        <input id="joinName" placeholder="Your name"/>
+        <input id="joinCode" placeholder="Room code"/>
+        <button id="joinRoomBtn" class="btn">Join Room</button>
+      </div>
+
+      <section class="recent">
+        <h3>Active rooms</h3>
+        <ul id="roomsList"></ul>
+      </section>
+    </main>
+
+    <main id="roomView" class="card hidden">
+      <div class="roomHeader">
+        <div><h2>Room <span id="roomCode"></span></h2><div class="meta">You: <span id="myName"></span></div></div>
+        <div><button id="copyLink" class="btn">Copy link</button><button id="leaveBtn" class="btn">Leave</button></div>
+      </div>
+
+      <div class="boardWrap">
+        <aside class="leftCol">
+          <section class="panel"><h4>Players</h4><ul id="playersList"></ul></section>
+          <section class="panel"><h4>Dividends</h4><div id="dividendsList"></div><input id="divName" placeholder="Name"/><input id="divAmt" placeholder="Amount" type="number"/><button id="addDivBtn" class="btn small">Add</button></section>
+          <section class="panel"><h4>Claims</h4><ul id="claimsList"></ul></section>
+        </aside>
+
+        <section class="centerCol">
+          <div class="ticketPanel"><h4>Your Ticket</h4><div id="myTicket" class="ticket grid3x9"></div></div>
+          <div class="boardPanel"><h4>Tambola Board</h4><div id="tambolaBoard" class="board90"></div><div class="lastCalls">Last 5: <span id="lastFive"></span></div></div>
+        </section>
+
+        <aside class="rightCol">
+          <section class="panel"><h4>Controls</h4>
+            <div><button id="callNumberBtn" class="btn primary">Call Number</button><button id="autoCallBtn" class="btn">Auto</button><button id="stopAutoBtn" class="btn hidden">Stop</button></div>
+          </section>
+          <section class="panel"><h4>Info</h4><div>Players: <span id="playersCount">0</span></div><div>Called: <span id="calledCount">0</span></div></section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="foot">Made with ❤️ — IntelliTambola</footer>
+  </div>
+
+  <audio id="callSound" preload="auto" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
