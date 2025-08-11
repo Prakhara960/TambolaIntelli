@@ -1,4 +1,4 @@
-const API_BASE = "<YOUR_WEB_APP_URL>"; // <-- paste deployed Web App URL here (include https://...)
+const API_BASE = "https://script.google.com/macros/s/AKfycbxz_QEsc9fw9JbzhVbcrjIwaJ0jto35YsVvZVueS1BgxpM4GJIXWfG7bsnWlnWutJhIiQ/exec"; // <-- paste deployed Web App URL here (include https://...)
 
 // UI refs
 const $ = id => document.getElementById(id);
