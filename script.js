@@ -151,3 +151,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const params = new URLSearchParams(location.search);
   if(params.get('room')) $('joinCode').value = params.get('room');
 });
+
+function pollCalledNumbers() {
+    setInterval(() => {
+        fetch(`${SCRIPT_URL}?action=getCalledNumbers&roomCode=${roomCode}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) {
+                    updateBoard(data.calledNumbers);
+                    updateLastFive(data.calledNumbers);
+                }
+            });
+    }, 3000); // Every 3 seconds
+}
+
+function updateBoard(calledNumbers) {
+    document.querySelectorAll(".number-cell").forEach(cell => {
+        let num = parseInt(cell.dataset.number);
+        if (calledNumbers.includes(num)) {
+            cell.style.backgroundColor = "yellow"; // highlight called number
+        }
+    });
+}
+
+function updateLastFive(calledNumbers) {
+    const lastFive = calledNumbers.slice(-5).reverse();
+    document.getElementById("last-five").innerText = lastFive.join(", ");
+}
