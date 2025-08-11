@@ -1,4 +1,4 @@
-const backendUrl = "YOUR_DEPLOYED_SCRIPT_URL";
+const backendUrl = "https://script.google.com/macros/s/AKfycbwRFKznvzi5-_Ecid7EsJG6w9TkMj7tCYq83eJ3Qy0zeR8-zKWDk_ikd6OzU2SAFQbw/exec";
 
 document.getElementById("createRoomBtn").onclick = () => {
   let name = prompt("Enter host name:");
