@@ -1,4 +1,4 @@
-const API_BASE = "<YOUR_WEB_APP_URL>"; // <-- paste deployed Apps Script Web App URL here
+const API_BASE = "https://script.google.com/macros/s/AKfycbw1jH9SITJEBrgkj9BzyTFaGqQ7TaxeHvhrKidksX0qBG9NghGtQBL6_sNjsA2ihd7ywA/exec"; // <-- paste deployed Apps Script Web App URL here
 
 const $ = id => document.getElementById(id);
 let currentRoom=null, myPlayerId=null, myName=null, isHost=false, pollHandle=null, autoCalling=false;
